@@ -3,8 +3,8 @@
   <p>
     Submitted: {{ctrl.job.submitted | date : 'MMM d, y HH:mm:ss'}}<br>
     Status:
-    <img ng-src="/images/{{ctrl.job.state}}.svg" width="16px">
-    {{ctrl.job.status}}<br>
+    <img ng-src="/images/{{ctrl.job.state}}.svg" width="16px"> <span ng-if="ctrl.job.state != 'failed'">{{ctrl.job.status}}</span><br>
+    <pre ng-if="ctrl.job.state == 'failed'">{{ctrl.job.status}}</pre>
     Last status change: {{ctrl.job.last_changed | date : 'MMM d, y HH:mm:ss'}}<br>
     <div class="result-link" ng-if="ctrl.job.state == 'done'">
       See the <a ng-href="{{ctrl.job.result_url}}">results</a>.
