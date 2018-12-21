@@ -9,16 +9,16 @@ angular.module('antismash.ui.bacterial.as_start', ['ngFileUpload'])
             vm.valid_gff_endings = '.gff,.gff3';
 
             // Defaullt values
-            vm.submission = {};
+            vm.submission = {
+                jobtype: 'antismash5',
+            };
             vm.extra_features = [
-                { id: 'knownclusterblast', description: 'KnownClusterBlast', default: true },
-                { id: 'clusterblast', description: 'ClusterBlast', default: false },
-                { id: 'subclusterblast', description: 'SubClusterBlast', default: true },
-                { id: 'smcogs', description: 'smCoG analysis', default: true },
-                { id: 'asf', description: 'ActiveSiteFinder', default: true },
-                { id: 'tta', description: 'Detect TTA codons', default: false },
-                //{ id: 'transatpks_da', description: 'Align Trans-AT PKS domains', default: false },
-                { id: 'fullhmmer', description: 'Whole-genome PFAM analysis', default: false },
+                { id: 'knownclusterblast', description: 'KnownClusterBlast', default: true, legacy: true},
+                { id: 'clusterblast', description: 'ClusterBlast', default: false, legacy: true },
+                { id: 'subclusterblast', description: 'SubClusterBlast', default: true, legacy: true },
+                { id: 'asf', description: 'ActiveSiteFinder', default: true, legacy: true },
+                { id: 'clusterhmmer', description: 'Cluster Pfam analysis', default: false },
+                { id: 'pfam2go', description: 'Pfam-based GO term annotation', default: false },
             ];
 
             for (var i = 0; i < vm.extra_features.length; i++) {
@@ -26,7 +26,6 @@ angular.module('antismash.ui.bacterial.as_start', ['ngFileUpload'])
                 vm.submission[feature.id] = feature.default;
             }
 
-            vm.cf_threshold = 0.6;
             vm.genefinder = 'prodigal';
 
             vm.submit = function (form) {
@@ -39,7 +38,7 @@ angular.module('antismash.ui.bacterial.as_start', ['ngFileUpload'])
                         vm.submission.gff3 = vm.gff_file;
                         vm.submission.genefinder = 'none';
                     } else {
-                        vm.submission.genefinder = vm.genefinder;
+                        vm.submission.genefinder = 'prodigal';
                     }
                 } else {
                     vm.submission.ncbi = vm.ncbi;
@@ -47,17 +46,6 @@ angular.module('antismash.ui.bacterial.as_start', ['ngFileUpload'])
 
                 if (vm.email) {
                     vm.submission.email = vm.email;
-                }
-
-                if (vm.clusterfinder) {
-                    vm.submission.inclusive = true;
-                    vm.submission.cf_threshold = vm.cf_threshold;
-                    vm.submission.cf_cdsnr = vm.cf_cdsnr;
-                    vm.submission.cf_npfams = vm.cf_npfams;
-                }
-
-                if (vm.borderpredict) {
-                    vm.submission.borderpredict = true;
                 }
 
                 Upload.upload({
