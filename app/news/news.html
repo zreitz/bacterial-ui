@@ -1,11 +1,11 @@
+<div uib-alert class="alert-warning">
+  <strong>This is the antiSMASH 5 beta</strong><br>
+  While we feel it is pretty good already, this version might still be a bit rough at the edges.
+  Until spring 2019, you can still <a href="https://fast.antismash.secondarymetabolites.org/">run antiSMASH 4 jobs here</a>.
+</div>
+
 <div uib-alert ng-repeat="alert in ctrl.alerts" ng-class="'alert-' + (alert.category || 'warning')" close="ctrl.closeAlert($index)">
   <strong>{{alert.teaser}}</strong><br/>
   {{alert.text}}
 </div>
 
-<div uib-alert class="alert-info">
-  <strong>Fast mode available!</strong><br>
-  Long queue? Just need the cluster detection?
-  Check out the <a href="https://fast.antismash.secondarymetabolites.org/">fast mode</a>
-  to get a cluster detection only analysis in less than a minute.
-</div>
