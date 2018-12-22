@@ -157,7 +157,7 @@ angular.module('antismash.ui.bacterial.as_start', ['ngFileUpload'])
             }
 
             vm.openSampleOutput = function () {
-                $window.location.href = "/upload/example/index.html";
+                $window.location.href = "/upload/example_v4/index.html";
             }
 
             vm.loadJob = function () {
