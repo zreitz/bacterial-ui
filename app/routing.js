@@ -39,10 +39,6 @@ angular.module('antismash.ui.bacterial.routing', [
         controller: 'AsAboutCtrl',
         controllerAs: 'ctrl'
       }).
-      state('help', {
-        url: '/help',
-        templateUrl: 'help/help.html'
-      }).
       state('contact', {
         url: '/contact',
         template: '<div class="wide-container"><as-contact></as-contact></div>'
