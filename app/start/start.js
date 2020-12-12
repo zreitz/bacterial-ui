@@ -10,13 +10,14 @@ angular.module('antismash.ui.bacterial.as_start', ['ngFileUpload'])
 
             // Defaullt values
             vm.submission = {
-                jobtype: 'antismash5',
+                jobtype: 'antismash6',
             };
             vm.extra_features = [
                 { id: 'knownclusterblast', description: 'KnownClusterBlast', default: true, legacy: true},
                 { id: 'clusterblast', description: 'ClusterBlast', default: false, legacy: true },
                 { id: 'subclusterblast', description: 'SubClusterBlast', default: true, legacy: true },
                 { id: 'asf', description: 'ActiveSiteFinder', default: true, legacy: true },
+                { id: 'rre', description: 'RREFinder', default: true },
                 { id: 'clusterhmmer', description: 'Cluster Pfam analysis', default: false },
                 { id: 'pfam2go', description: 'Pfam-based GO term annotation', default: false },
             ];
