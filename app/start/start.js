@@ -16,10 +16,12 @@ angular.module('antismash.ui.bacterial.as_start', ['ngFileUpload'])
                 { id: 'knownclusterblast', description: 'KnownClusterBlast', default: true, legacy: true},
                 { id: 'clusterblast', description: 'ClusterBlast', default: false, legacy: true },
                 { id: 'subclusterblast', description: 'SubClusterBlast', default: true, legacy: true },
+                { id: 'cc_mibig', description: 'MIBiG cluster comparison', default: false },
                 { id: 'asf', description: 'ActiveSiteFinder', default: true, legacy: true },
                 { id: 'rre', description: 'RREFinder', default: true },
                 { id: 'clusterhmmer', description: 'Cluster Pfam analysis', default: false },
                 { id: 'pfam2go', description: 'Pfam-based GO term annotation', default: false },
+                { id: 'tigrfam', description: 'TIGRFam analysis', default: false },
             ];
 
             for (var i = 0; i < vm.extra_features.length; i++) {
