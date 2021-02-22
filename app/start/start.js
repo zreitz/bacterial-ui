@@ -10,6 +10,8 @@ angular.module('antismash.ui.bacterial.as_start', ['ngFileUpload'])
 
             vm.run_beta = true;
 
+            vm.upload_sideload_file = false;
+
             // Defaullt values
             vm.submission = {};
 
@@ -56,6 +58,10 @@ angular.module('antismash.ui.bacterial.as_start', ['ngFileUpload'])
                     }
                 } else {
                     vm.submission.ncbi = vm.ncbi;
+                }
+
+                if (vm.run_beta && vm.sideload_file) {
+                    vm.submission.sideload = vm.sideload_file;
                 }
 
                 if (vm.email) {
